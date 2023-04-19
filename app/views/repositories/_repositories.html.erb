@@ -1,0 +1,8 @@
+<% @repositories.each do |repository| %>
+  <div class="repository card my-3">
+    <div class="card-body">
+      <h5 class="card-title"><%= link_to repository.name, repository.html_url, target: '_blank' %></h5>
+      <p class="card-text"><%= repository.description %></p>
+    </div>
+  </div>
+<% end %>

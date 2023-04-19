@@ -1,0 +1,11 @@
+<%= form_with url: repositories_path, method: :get, data: { controller: 'repositories' }, class: 'd-flex mb-3' do |form| %>
+  <%= form.text_field :search, class: 'form-control me-2', placeholder: 'Search repositories...' %>
+  <%= form.submit 'Search', class: 'btn btn-primary me-2', data: { action: 'click->repositories#submit' } %>
+  <%= button_tag 'Refresh', class: 'btn btn-secondary', type: 'button', data: { action: 'click->repositories#refresh' } %>
+<% end %>
+
+<div id="repositories">
+  <%= render 'repositories', repositories: @repositories %>
+</div>
+
+<%= turbo_frame_tag 'repositories', class: 'mt-3' %>
